@@ -104,12 +104,7 @@ def main():
     for i in range(len(pre_car_time)):
         pre_car_time_sum += pre_car_time[i]
     pre_sum = pre_car_time_sum/len(pre_car_time)
-    spe_small = False
-    if road_spe_pre < 11.2:
-        speed_sort_id = get.car_time_test(carID_arry, car_spe_arry, car_pri_arry, max(pre_car_time))
-        spe_small = True
-    else:
-        speed_sort_id = get.car_time_test1(carID_arry, car_spe_arry, car_pri_arry, max(pre_car_time))        
+       
     #distance = [] #最短路径距离
     #for i in range(len(car_ori)):
     #    distance.append(graph[car_ori[i]][car_ter[i]])
@@ -135,40 +130,7 @@ def main():
     #    random1.append(bbbb)
     #print(max(car_tim))
     for i in range(len(out_list)):
-        out_list[i].insert(1,max(car_tim[i], 20+max(pre_car_time)+speed_sort_id[carID[i]]))
-    for i in range(len(car_tim)):
-        if spe_small:
-            if car_tim[i] < 10:
-                out_list[i][1] = car_tim[i]
-            if car_tim[i] > 15 and car_tim[i] < 20:
-                out_list[i][1] = car_tim[i]
-            #if car_tim[i] > 35 and car_tim[i] < 40:
-            #    out_list[i][1] = car_tim[i] 
-            if car_tim[i] > 50 and car_tim[i] < 53:
-                out_list[i][1] = car_tim[i]   
-            #if car_tim[i] > 100 and car_tim[i] < 105:
-            #    out_list[i][1] = car_tim[i]          
-            if car_tim[i] > 125 and car_tim[i] < 130:
-                out_list[i][1] = car_tim[i]           
-            #if car_tim[i] > 160 and car_tim[i] < 165:
-            #    out_list[i][1] = car_tim[i]         
-            if car_tim[i] > 190 and car_tim[i] < 199:
-                out_list[i][1] = car_tim[i]  
-         
-        else:
-            if car_tim[i] < 3:
-                out_list[i][1] = car_tim[i]
-            #if car_tim[i] > 15 and car_tim[i] < 17:
-            #    out_list[i][1] = car_tim[i]
-            #if car_tim[i] > 35 and car_tim[i] < 37:
-            #    out_list[i][1] = car_tim[i] 
-            #if car_tim[i] > 50 and car_tim[i] < 53:
-            #    out_list[i][1] = car_tim[i]   
-            #if car_tim[i] > 60 and car_tim[i] < 62:
-            #    out_list[i][1] = car_tim[i]+50          
-            #if car_tim[i] > 70 and car_tim[i] < 72:
-            #    out_list[i][1] = car_tim[i]+80           
-                    
+        out_list[i].insert(1,max(car_tim[i], 20+max(pre_car_time)+speed_sort_id[carID[i]]))         
     get.answer(answer_path, out_list)
 
 if __name__ == "__main__":
